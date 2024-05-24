@@ -1,0 +1,34 @@
+{
+  "name": "xpress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon backend/index.js",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MJephat/Xpress.git"
+  },
+  "author": "Jephat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MJephat/Xpress/issues"
+  },
+  "homepage": "https://github.com/MJephat/Xpress#readme",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.0"
+  }
+}

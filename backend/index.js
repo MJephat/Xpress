@@ -5,7 +5,11 @@ import userRoutes from "./routes/users.js";
 import cookieParser from "cookie-parser";
 import multer from "multer";
 import cors from "cors";
+import path from "path";
+import dotenv from "dotenv";
 
+
+dotenv.config();
 const app = express();
   console.log("starting connecting.... 0");
 
@@ -46,6 +50,19 @@ app.use("/api/posts", postRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 
+// .......................deployment...............
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/client/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname1, "client", "build", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("Api is running!");
+  });
+}
 // app.listen(8080, () => {
 //   console.log("starting connecting....3 ");
 //   console.log("Connected and running on port 8080");
